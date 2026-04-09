@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZREZ-01-26-00171 | Formal Objection – Rezoning Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!--
+  ═══════════════════════════════════════════════════════════════
+  EMAILJS SETUP INSTRUCTIONS
+  ───────────────────────────────────────────────────────────────
+  1. Create a free account at https://www.emailjs.com
+  2. Add an Email Service (Gmail, Outlook, etc.) → note the SERVICE ID
+  3. Create an Email Template with these variables:
+       {{to_email}}      – recipient address
+       {{from_name}}     – signer's full name
+       {{from_email}}    – signer's email
+       {{reply_to}}      – signer's email (for reply-to header)
+       {{letter_body}}   – full objection letter text
+       {{subject}}       – email subject line
+  4. Set the template's "To Email" field to: {{to_email}}
+  5. Set the template's "Reply-To" to: {{reply_to}}
+  6. Copy your PUBLIC KEY from Account → API Keys
+  7. Replace the three placeholder values below:
+       EMAILJS_PUBLIC_KEY   → your public key
+       EMAILJS_SERVICE_ID   → your service ID
+       EMAILJS_TEMPLATE_ID  → your template ID
+  ═══════════════════════════════════════════════════════════════
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────────── */
+    :root {
+      --navy:        #0f1e33;
+      --navy-mid:    #1a3050;
+      --navy-light:  #2a4a6e;
+      --gold:        #b58c3a;
+      --gold-light:  #d4a84b;
+      --gold-pale:   #f5ead4;
+      --parchment:   #f8f4ec;
+      --cream:       #fffdf8;
+      --text:        #1e1e1e;
+      --text-mid:    #3a3a3a;
+      --text-muted:  #6b6b6b;
+      --border:      #d4c9b0;
+      --border-dark: #b0a28a;
+      --error:       #8b1a1a;
+      --success:     #1a4a2e;
+      --radius:      4px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Decorative Top Bar ────────────────────────────────────── */
+    .top-bar {
+      height: 6px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+    }
+
+    /* ── Header ────────────────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.018) 40px,
+          rgba(255,255,255,0.018) 80px
+        );
+      pointer-events: none;
+    }
+
+    .header-badge {
+      display: inline-block;
+      border: 1px solid rgba(181,140,58,0.5);
+      border-radius: 2px;
+      padding: 4px 18px;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .seal-ring {
+      width: 72px;
+      height: 72px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .seal-ring::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(181,140,58,0.4);
+      border-radius: 50%;
+    }
+
+    .seal-inner {
+      font-family: 'Lato', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      text-align: center;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 720px;
+      margin: 0 auto 12px;
+    }
+
+    .case-number {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .gold-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 24px auto;
+    }
+
+    /* ── Deadline Banner ───────────────────────────────────────── */
+    .deadline-banner {
+      background: linear-gradient(135deg, #5c1a1a 0%, #7a2020 100%);
+      color: #fff;
+      text-align: center;
+      padding: 14px 24px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .deadline-banner strong {
+      color: #ffd17a;
+    }
+
+    /* ── Main Container ────────────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ── Section Wrapper ───────────────────────────────────────── */
+    .section {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      margin-top: 32px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(15,30,51,0.07);
+    }
+
+    .section-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .section-body {
+      padding: 28px 32px;
+    }
+
+    /* ── Property Info ─────────────────────────────────────────── */
+    .property-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .property-grid { grid-template-columns: 1fr; }
+    }
+
+    .prop-item {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+    }
+
+    .prop-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .prop-value {
+      font-family: 'Source Serif 4', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ── Map ───────────────────────────────────────────────────── */
+    .map-wrapper {
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 400px;
+      display: block;
+      border: none;
+    }
+
+    .map-caption {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 8px 14px;
+      text-align: center;
+    }
+
+    .map-caption strong { color: var(--gold-light); }
+
+    /* ── Letter Body ───────────────────────────────────────────── */
+    .letter-frame {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 36px 40px;
+      position: relative;
+    }
+
+    .letter-frame::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 32px;
+      right: 32px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    }
+
+    @media (max-width: 560px) {
+      .letter-frame { padding: 24px 20px; }
+    }
+
+    .letter-meta {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .letter-meta p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .letter-meta strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .letter-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 22px 0 8px;
+    }
+
+    .letter-body h3:first-child { margin-top: 0; }
+
+    .letter-body p {
+      font-size: 15px;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+
+    .letter-note {
+      background: var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 12px 18px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--navy-mid);
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ── Alternative Methods ───────────────────────────────────── */
+    .alt-methods-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .alt-methods-grid { grid-template-columns: 1fr; }
+    }
+
+    .alt-method-card {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .alt-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .alt-method-content { flex: 1; }
+
+    .alt-method-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .alt-method-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .alt-method-detail {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .alt-method-detail a {
+      color: var(--navy-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .in-person-card {
+      grid-column: 1 / -1;
+      background: var(--navy);
+      border-color: var(--navy-mid);
+    }
+
+    .in-person-card .alt-method-label { color: var(--gold-light); }
+    .in-person-card .alt-method-title { color: #fff; }
+    .in-person-card .alt-method-detail { color: rgba(255,255,255,0.65); }
+    .in-person-card .alt-icon { background: rgba(255,255,255,0.1); }
+
+    /* ── Signature Form ────────────────────────────────────────── */
+    .notice-box {
+      background: #f0f4f9;
+      border: 1px solid #c5d3e0;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      color: var(--navy-mid);
+      line-height: 1.6;
+    }
+
+    .notice-box .notice-title {
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .notice-box a { color: var(--navy-light); }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+    }
+
+    label .req {
+      color: #8b1a1a;
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--navy-light);
+      box-shadow: 0 0 0 3px rgba(42,74,110,0.12);
+    }
+
+    .field-hint {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ── Checkboxes ────────────────────────────────────────────── */
+    .check-group {
+      margin: 20px 0;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .check-item:hover { background: var(--parchment); }
+
+    .check-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--navy);
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .check-label-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .check-label-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Divider ───────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    /* ── Consent ───────────────────────────────────────────────── */
+    .consent-block {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+
+    .consent-block p {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .consent-block p strong { color: var(--navy-mid); }
+
+    /* ── Submit Button ─────────────────────────────────────────── */
+    .submit-wrap { text-align: center; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 16px 48px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 60%);
+    }
+
+    .btn-submit:hover { background: var(--navy-light); }
+    .btn-submit:active { transform: scale(0.98); }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+    .btn-icon {
+      font-size: 16px;
+    }
+
+    .submit-note {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── Toast / Status ────────────────────────────────────────── */
+    .toast {
+      display: none;
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-top: 20px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      border: 1px solid;
+    }
+
+    .toast.success {
+      background: #f0fff5;
+      border-color: #4caf80;
+      color: var(--success);
+    }
+
+    .toast.error {
+      background: #fff0f0;
+      border-color: #e07070;
+      color: var(--error);
+    }
+
+    .toast-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    /* ── Admin Panel ───────────────────────────────────────────── */
+    .admin-panel {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .btn-admin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-admin:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    .admin-count {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 24px;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-top: 60px;
+    }
+
+    footer strong { color: var(--gold-light); }
+
+    /* ── Loader ────────────────────────────────────────────────── */
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Fade-in ───────────────────────────────────────────────── */
+    .section {
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.06s; }
+    .section:nth-child(3) { animation-delay: 0.12s; }
+    .section:nth-child(4) { animation-delay: 0.18s; }
+    .section:nth-child(5) { animation-delay: 0.24s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ═══════════════════════════════════════ HEADER ═══ -->
+<header>
+  <div class="header-badge">Charleston County · Public Participation</div>
+  <div class="seal-ring">
+    <div class="seal-inner">CC<br>SC</div>
+  </div>
+  <p class="case-number">CASE NO. ZREZ-01-26-00171</p>
+  <h1>Formal Community Objection<br>to Rezoning Application</h1>
+  <div class="gold-rule"></div>
+  <p class="header-sub">TMS #475-02-00-031 &nbsp;·&nbsp; 6786 Ward Ave, North Charleston, SC<br>Proposed Rezoning: Low Density Residential (R-4) → Neighborhood Commercial (NC)</p>
+</header>
+
+<!-- ═══════════════════════════════════════ DEADLINE ═══ -->
+<div class="deadline-banner">
+  ⚠ &nbsp; Deadline for Public Hearing Packet Inclusion: &nbsp;
+  <strong>5:00 PM · Friday, April 10, 2026</strong>
+  &nbsp; — Public comments accepted throughout the adoption process
+</div>
+
+<!-- ═══════════════════════════════════════ MAIN ═══ -->
+<div class="container">
+
+  <!-- ── SECTION 1: Property Overview + Map ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <span class="section-title">Subject Property &amp; Aerial Overview</span>
+    </div>
+    <div class="section-body">
+      <div class="property-grid">
+        <div class="prop-item">
+          <div class="prop-label">Property Address</div>
+          <div class="prop-value">6786 Ward Ave, North Charleston, SC</div>
+        </div>
+        <div class="prop-item">
+          <div class="prop-label">Tax Map Parcel (TMS)</div>
+          <div class="prop-value">#475-02-00-031</div>
+        </div>
+        <div class="prop-item">
+          <div class="prop-label">Current Zoning</div>
+          <div class="prop-value">Low Density Residential (R-4)</div>
+        </div>
+        <div class="prop-item">
+          <div class="prop-label">Proposed Zoning</div>
+          <div class="prop-value">Neighborhood Commercial (NC)</div>
+        </div>
+      </div>
+
+      <!-- Aerial Map -->
+      <div class="map-wrapper">
+        <iframe
+          src="https://maps.google.com/maps?q=6786+Ward+Ave+North+Charleston+SC+29405&t=k&z=18&ie=UTF8&iwloc=B&output=embed"
+          loading="lazy"
+          allowfullscreen
+          aria-label="Aerial satellite view of 6786 Ward Ave, North Charleston, SC"
+          title="Aerial Map – 6786 Ward Ave, North Charleston, SC"
+        ></iframe>
+        <div class="map-caption">
+          <strong>Aerial Satellite View</strong> &nbsp;·&nbsp; 6786 Ward Ave, North Charleston, SC 29405 &nbsp;·&nbsp; TMS #475-02-00-031
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: Objection Letter ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <span class="section-title">Formal Objection – Full Text</span>
+    </div>
+    <div class="section-body">
+      <div class="letter-frame">
+        <div class="letter-meta">
+          <p><strong>To:</strong> Charleston County Council · Zoning &amp; Planning Department</p>
+          <p><strong>Re:</strong> Formal Opposition to Rezoning Application ZREZ-01-26-00171</p>
+        </div>
+
+        <div class="letter-body">
+          <p>I am writing to formally oppose the proposed rezoning of TMS #475-02-00-031 from Low Density Residential (R-4) to Neighborhood Commercial (NC).</p>
+
+          <h3>1. Incompatibility with Existing Land Use</h3>
+          <p>The subject property is situated within an established residential area characterized by low-density housing, a place of worship, and a daycare facility. The introduction of Neighborhood Commercial zoning is inconsistent with the existing land use pattern and would disrupt the residential integrity of the area.</p>
+
+          <h3>2. Proximity to Sensitive Community Uses</h3>
+          <p>The property is located in close proximity to a church and an active daycare facility. The introduction of commercial activity — particularly one associated with smoking-related products — raises significant concerns regarding exposure, appropriateness, and overall compatibility with environments serving children and families.</p>
+
+          <h3>3. Public Health and Welfare Concerns</h3>
+          <p>The proposed rezoning introduces the potential for uses that may adversely impact public health and community well-being. Given the presence of children and families in the immediate vicinity, such uses are not aligned with the best interests of the surrounding community.</p>
+
+          <h3>4. Increased Traffic and Operational Impact</h3>
+          <p>Rezoning to Neighborhood Commercial would likely result in increased traffic, parking demand, and extended operating hours. The current infrastructure and residential street design are not suited to accommodate this level of commercial activity.</p>
+
+          <h3>5. Spot Zoning Consideration</h3>
+          <p>The requested rezoning appears to create an isolated commercial designation within a predominantly residential area. This raises concerns of spot zoning, which is inconsistent with sound planning principles and may not align with the County's comprehensive land use framework.</p>
+
+          <h3>Conclusion</h3>
+          <p>For the reasons outlined above, I respectfully request that Charleston County Council <strong>deny</strong> the rezoning application ZREZ-01-26-00171 in order to preserve the character, safety, and well-being of the surrounding community.</p>
+        </div>
+
+        <div class="letter-note">
+          📋 &nbsp; By completing the signature form below, you are adopting this letter as your personal formal objection to be submitted on your behalf to Charleston County Council and the Zoning &amp; Planning Department.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: Alternative Submission Methods ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <span class="section-title">Alternative Submission Methods</span>
+    </div>
+    <div class="section-body">
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:20px; font-family:'Lato',sans-serif;">
+        For those preferring alternative submission methods, the following options are available. Please note the comment deadline of <strong style="color:var(--navy)">5:00 PM, Friday, April 10, 2026</strong> for inclusion in the Public Hearing packet; however, public comments will continue to be accepted throughout the adoption process.
+      </p>
+
+      <div class="alt-methods-grid">
+
+        <div class="alt-method-card">
+          <div class="alt-icon">📱</div>
+          <div class="alt-method-content">
+            <div class="alt-method-label">Text Message</div>
+            <div class="alt-method-title">SMS Comment</div>
+            <div class="alt-method-detail">
+              Text <strong>ZREZ00171</strong> to <strong>73224</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="alt-method-card">
+          <div class="alt-icon">☎️</div>
+          <div class="alt-method-content">
+            <div class="alt-method-label">Voicemail</div>
+            <div class="alt-method-title">Recorded Comment</div>
+            <div class="alt-method-detail">
+              Call <strong>855-925-2801</strong><br>
+              Project Code: <strong>2148</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="alt-method-card">
+          <div class="alt-icon">🌐</div>
+          <div class="alt-method-content">
+            <div class="alt-method-label">Online Portal</div>
+            <div class="alt-method-title">Engage Charleston County</div>
+            <div class="alt-method-detail">
+              <a href="https://engage.charlestoncounty.org/ZREZ00171" target="_blank" rel="noopener">
+                engage.charlestoncounty.org/ZREZ00171
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="alt-method-card in-person-card">
+          <div class="alt-icon">🏛️</div>
+          <div class="alt-method-content">
+            <div class="alt-method-label">Public Hearing</div>
+            <div class="alt-method-title">In-Person Comment Period</div>
+            <div class="alt-method-detail">
+              Individuals may attend the public hearing and provide comments during the designated public comment period before Charleston County Council.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: Signature Form ── -->
+  <div class="section" id="sign-section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <span class="section-title">Sign &amp; Submit Your Objection</span>
+    </div>
+    <div class="section-body">
+
+      <!-- Email Routing Notice -->
+      <div class="notice-box">
+        <div class="notice-title">📧 Email Routing Notice</div>
+        Upon submission, a copy of your signed objection will automatically be forwarded to the following official recipients:
+        <br><br>
+        <strong>1.</strong> Charleston County Public Input &nbsp;→&nbsp; <strong>ZREZ00171&#64;publicinput&#46;com</strong><br>
+        <strong>2.</strong> Lead Objector Contact &nbsp;→&nbsp; <strong>lovelymt&#64;bellsouth&#46;net</strong><br><br>
+        You will be clearly notified of this routing upon successful submission. If you wish to also receive a personal copy, please check the opt-in box below before submitting.
+      </div>
+
+      <form id="objection-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name <span class="req">*</span></label>
+            <input type="text" id="first-name" name="first_name" placeholder="First name" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name <span class="req">*</span></label>
+            <input type="text" id="last-name" name="last_name" placeholder="Last name" required autocomplete="family-name" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <span class="field-hint">Your email is used only for this submission and optional confirmation copy.</span>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Checkboxes -->
+        <div class="check-group">
+          <label class="check-item" for="opt-copy">
+            <input type="checkbox" id="opt-copy" name="opt_copy" />
+            <div class="check-label-text">
+              <strong>✉ Send me a personal copy of this submission</strong>
+              I would like to receive a copy of my signed objection letter at the email address provided above.
+            </div>
+          </label>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Consent Statement -->
+        <div class="consent-block">
+          <p>
+            By clicking <strong>"Submit Formal Objection"</strong> below, I confirm that I have read and agree with the contents of the objection letter above, and I authorize it to be submitted on my behalf as my formal public comment opposing Rezoning Application <strong>ZREZ-01-26-00171</strong>. I understand that my name will be included in the submitted correspondence and that copies will be forwarded to <strong>ZREZ00171&#64;publicinput&#46;com</strong> and <strong>lovelymt&#64;bellsouth&#46;net</strong>.
+          </p>
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit" id="submit-btn">
+            <span class="btn-icon">✍</span>
+            <span id="btn-text">Submit Formal Objection</span>
+          </button>
+          <p class="submit-note">
+            Your objection will be forwarded to Charleston County Council and the Zoning &amp; Planning Department.<br>
+            You will receive confirmation of successful submission on this page.
+          </p>
+
+          <!-- Status Toast -->
+          <div class="toast success" id="toast-success">
+            <div class="toast-title">✅ Objection Successfully Submitted</div>
+            <p>Your formal objection has been submitted and forwarded to:<br>
+            <strong>ZREZ00171&#64;publicinput&#46;com</strong> and <strong>lovelymt&#64;bellsouth&#46;net</strong>.<br>
+            <span id="copy-confirm"></span>
+            Thank you for participating in the public comment process.</p>
+          </div>
+
+          <div class="toast error" id="toast-error">
+            <div class="toast-title">⚠ Submission Error</div>
+            <p id="error-msg">There was a problem submitting your objection. Please try again or use one of the alternative submission methods above.</p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Admin: Download CSV (hidden – access via Ctrl+Shift+D) ── -->
+  <div class="admin-panel" style="display:none;" aria-hidden="true">
+    <button class="btn-admin" id="download-csv-btn">
+      ⬇ Download Submissions CSV
+    </button>
+    <p class="admin-count" id="submission-count"></p>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <strong>ZREZ-01-26-00171</strong> &nbsp;·&nbsp; Charleston County Zoning &amp; Planning Department<br>
+  This portal facilitates the submission of formal public comments regarding Rezoning Application ZREZ-01-26-00171.<br>
+  All submissions are subject to public record laws.
+</footer>
+
+
+<!-- ═══════════════════════════════════════ SCRIPTS ═══ -->
+<script>
+  /* ─────────────────────────────────────────────────────────
+     CONFIGURATION
+     ─────────────────────────────────────────────────────────
+     Replace the three values below with your EmailJS credentials.
+     Sign up for free at https://www.emailjs.com
+  ──────────────────────────────────────────────────────────── */
+  const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';      // ← replace
+  const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';      // ← replace
+  const EMAILJS_TEMPLATE_ID  = 'YOUR_TEMPLATE_ID';     // ← replace
+
+  /* Official recipients – do not modify */
+  const OFFICIAL_RECIPIENTS = [
+    'ZREZ00171@publicinput.com',
+    'lovelymountainbaptistchurch7@gmail.com'
+  ];
+
+  const CASE_NUMBER = 'ZREZ-01-26-00171';
+  const CSV_KEY     = 'zrez_submissions_csv';
+
+  /* ── Initialize EmailJS ── */
+  (function() {
+    try {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    } catch(e) {
+      console.warn('EmailJS init skipped (placeholder key):', e.message);
+    }
+  })();
+
+  /* ── Letter Body for Email ── */
+  const LETTER_TEXT = `Formal Opposition to Rezoning Application ${CASE_NUMBER}
+
+To:
+Charleston County Council
+Zoning & Planning Department
+
+Re: Formal Opposition to Rezoning Application ${CASE_NUMBER}
+
+I am writing to formally oppose the proposed rezoning of TMS #475-02-00-031 from Low Density Residential (R-4) to Neighborhood Commercial (NC).
+
+1. Incompatibility with Existing Land Use
+The subject property is situated within an established residential area characterized by low-density housing, a place of worship, and a daycare facility. The introduction of Neighborhood Commercial zoning is inconsistent with the existing land use pattern and would disrupt the residential integrity of the area.
+
+2. Proximity to Sensitive Community Uses
+The property is located in close proximity to a church and an active daycare facility. The introduction of commercial activity — particularly one associated with smoking-related products — raises significant concerns regarding exposure, appropriateness, and overall compatibility with environments serving children and families.
+
+3. Public Health and Welfare Concerns
+The proposed rezoning introduces the potential for uses that may adversely impact public health and community well-being. Given the presence of children and families in the immediate vicinity, such uses are not aligned with the best interests of the surrounding community.
+
+4. Increased Traffic and Operational Impact
+Rezoning to Neighborhood Commercial would likely result in increased traffic, parking demand, and extended operating hours. The current infrastructure and residential street design are not suited to accommodate this level of commercial activity.
+
+5. Spot Zoning Consideration
+The requested rezoning appears to create an isolated commercial designation within a predominantly residential area. This raises concerns of spot zoning, which is inconsistent with sound planning principles and may not align with the County's comprehensive land use framework.
+
+Conclusion
+For the reasons outlined above, I respectfully request that Charleston County Council DENY the rezoning application ${CASE_NUMBER} in order to preserve the character, safety, and well-being of the surrounding community.`;
+
+  /* ── Build full email body for a given signer ── */
+  function buildEmailBody(firstName, lastName, email) {
+    return `${LETTER_TEXT}
+
+Sincerely,
+${firstName} ${lastName}
+${email}
+
+─────────────────────────────────────
+NOTE: This submission was generated via the community objection portal.
+Copies of this objection have been forwarded to:
+  • ZREZ00171@publicinput.com
+  • lovelymountainbaptistchurch7@gmail.com
+─────────────────────────────────────`;
+  }
+
+  /* ── Send a single email via EmailJS ── */
+  async function sendEmail(toEmail, firstName, lastName, fromEmail) {
+    const params = {
+      to_email:    toEmail,
+      from_name:   `${firstName} ${lastName}`,
+      from_email:  fromEmail,
+      reply_to:    fromEmail,
+      subject:     CASE_NUMBER,
+      letter_body: buildEmailBody(firstName, lastName, fromEmail)
+    };
+    return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+  }
+
+  /* ── CSV Management (localStorage) ── */
+  function getCSVData() {
+    return localStorage.getItem(CSV_KEY) || 'First Name,Last Name,Email,Timestamp\n';
+  }
+
+  function appendToCSV(firstName, lastName, email) {
+    const existing = getCSVData();
+    const ts       = new Date().toISOString();
+    const row      = `"${firstName}","${lastName}","${email}","${ts}"\n`;
+    localStorage.setItem(CSV_KEY, existing + row);
+    updateSubmissionCount();
+  }
+
+  /* ── Admin CSV Download ──────────────────────────────────────
+     Access: press Ctrl + Shift + D anywhere on the page.
+     Change ADMIN_PASSWORD below to your preferred passphrase.
+  ──────────────────────────────────────────────────────────── */
+  const ADMIN_PASSWORD = 'zrez2026admin';   // ← change this
+
+  function downloadCSV() {
+    const csv  = getCSVData();
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `${CASE_NUMBER}_Objections_${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+      e.preventDefault();
+      const entered = prompt('Administrator access required.\nEnter password to download submissions CSV:');
+      if (entered === null) return; // cancelled
+      if (entered === ADMIN_PASSWORD) {
+        downloadCSV();
+      } else {
+        alert('Incorrect password. Access denied.');
+      }
+    }
+  });
+
+  function updateSubmissionCount() {
+    const csv   = getCSVData();
+    const lines = csv.trim().split('\n').length - 1; // subtract header
+    const el    = document.getElementById('submission-count');
+    if (el) el.textContent = `${lines} objection${lines !== 1 ? 's' : ''} recorded locally`;
+  }
+
+  updateSubmissionCount();
+
+  /* ── Form Submission Handler ── */
+  document.getElementById('objection-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName  = document.getElementById('last-name').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const wantsCopy = document.getElementById('opt-copy').checked;
+
+    /* Basic validation */
+    if (!firstName || !lastName || !email) {
+      showToast('error', 'Please complete all required fields before submitting.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast('error', 'Please enter a valid email address.');
+      return;
+    }
+
+    /* Disable button, show loading */
+    const btn     = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    btn.disabled  = true;
+    btnText.innerHTML = '<span class="spinner"></span> &nbsp; Submitting…';
+    hideToasts();
+
+    try {
+      /* Send to both official recipients */
+      for (const recipient of OFFICIAL_RECIPIENTS) {
+        await sendEmail(recipient, firstName, lastName, email);
+      }
+
+      /* Optionally send copy to signer */
+      if (wantsCopy) {
+        await sendEmail(email, firstName, lastName, email);
+      }
+
+      /* Append to local CSV */
+      appendToCSV(firstName, lastName, email);
+
+      /* Show success */
+      const copyNote = wantsCopy
+        ? `A personal copy has also been sent to <strong>${email}</strong>. `
+        : '';
+      document.getElementById('copy-confirm').innerHTML = copyNote;
+      showToast('success');
+      this.reset();
+      document.getElementById('sign-section').scrollIntoView({ behavior: 'smooth', block: 'end' }
